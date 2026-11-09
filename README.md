@@ -1,120 +1,62 @@
-# NutriPlan - JavaScript Starter Project
+# 🥗 NutriPlan — Food, Nutrition & Wellness Planner
 
-Welcome to the NutriPlan starter project! The design is fully complete - your task is to bring it to life with JavaScript.
+**NutriPlan** is a responsive single-page web application designed to help users discover nutritious recipes, scan packaged grocery products for health ratings, and log daily macronutrient intake in real time.
 
-## 🎯 Project Overview
+🌐 **Live Demo:** [https://dapper-dodol-6098c1.netlify.app](https://dapper-dodol-6098c1.netlify.app)  
+💻 **Repository:** [https://github.com/adhammahmoud658-wq/nutriplan-js-exam](https://github.com/adhammahmoud658-wq/nutriplan-js-exam)
 
-NutriPlan is a Food, Nutrition & Fitness Planner web application. The HTML and CSS are ready - you need to implement the JavaScript functionality.
+## ✨ Key Features
 
-## 📁 Project Structure
+- **Meals & Recipes Discovery:** Browse and filter recipes across global cuisines (e.g., Italian, Australian, Indian) and meal categories (Beef, Chicken, Pasta, Seafood, Vegan) with real-time keyword search powered by [TheMealDB API](https://www.themealdb.com/api.php).
+- **Detailed Recipe Breakdown & Video Tutorials:** Inspect ingredient lists, step-by-step preparation instructions, embedded YouTube cooking tutorials, and per-serving macro calculations.
+- **Smart Product Scanner:** Search packaged grocery items by product name or barcode number, filter by **Nutri-Score** (`A` through `E`), and view **NOVA** food processing classifications alongside per-100g nutrition stats.
+- **Interactive Daily Food Log:** Log custom meal portions or scanned products directly into your daily tracker with real-time progress bars for Calories (`kcal`), Protein (`g`), Carbohydrates (`g`), and Fat (`g`), plus a 7-day weekly overview and persistent `localStorage` state.
 
-```
-starter/
-├── index.html          # Main HTML file (ready)
-├── README.md           # This file
+## 🛠️ Tech Stack & Libraries
+
+| Category | Technology |
+| :--- | :--- |
+| **Core Languages** | HTML5, CSS3, Modern JavaScript (ES6+ Modules) |
+| **Styling & UI** | Tailwind CSS, [Font Awesome 7.0.1](https://www.google.com/search?q=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js), [Google Fonts (Inter)](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap) |
+| **Alerts & Modals** | [SweetAlert2](https://cdn.jsdelivr.net/npm/sweetalert2@11) |
+| **Data Visualization** | [Plotly.js 3.1.1](https://www.google.com/search?q=https://cdn.plot.ly/plotly-3.1.1.min.js) |
+| **REST APIs** | [TheMealDB API](https://www.themealdb.com/api/json/v1/1/categories.php) & Open Food Facts Product Data |
+
+## 📁 Project Architecture
+
+```text
+nutriplan-js-exam/
+├── index.html               # Single-page application shell & views
+├── README.md                # Project documentation
+├── css/                     # Stylesheets & Tailwind utilities
 └── src/
-    ├── css/
-    │   └── style.css   # Styles (ready)
-    └── js/
-        ├── main.js           # Entry point (implement here)
-        ├── api/
-        │   └── mealdb.js     # API module (implement here)
-        ├── state/
-        │   └── appState.js   # State management (implement here)
-        └── ui/
-            └── components.js  # UI components (implement here)
+    └── src/
+        ├── css/
+        │   ├── index.css    # Utility & layout styles
+        │   └── style.css    # Custom component styles
+        ├── images/
+        │   └── favicon.png  # Application icon
+        └── js/
+            ├── main.js      # Application entry point & event orchestration
+            ├── api/         # Asynchronous API fetchers (TheMealDB & Product lookup)
+            ├── state/       # Centralized state & localStorage persistence
+            └── ui/          # Reusable DOM rendering components
 ```
 
-## 🚀 Getting Started
+## 🚀 Getting Started Locally
 
-1. Open `index.html` in your browser to see the design
-2. Start implementing the JavaScript files
-3. Begin with `src/js/api/mealdb.js` - fetch data from the API
-4. Then update `src/js/main.js` to load and display data
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/adhammahmoud658-wq/nutriplan-js-exam.git
+   ```
+2. **Navigate to the project folder:**
+   ```bash
+   cd nutriplan-js-exam
+   ```
+3. **Launch with a local server:**
+   Open `index.html` using the **Live Server** extension in VS Code (or run `npx serve .`) so ES6 modules load properly over HTTP.
 
-## 🔗 API Reference
+## 👤 Author
 
-### TheMealDB API (Free, No API Key Required)
-
-Base URL: `https://www.themealdb.com/api/json/v1/1/`
-
-| Endpoint | Description | Example |
-|----------|-------------|---------|
-| `/categories.php` | Get all categories | [Try it](https://www.themealdb.com/api/json/v1/1/categories.php) |
-| `/search.php?s={query}` | Search meals by name | [Try it](https://www.themealdb.com/api/json/v1/1/search.php?s=chicken) |
-| `/lookup.php?i={id}` | Get meal by ID | [Try it](https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772) |
-| `/filter.php?c={category}` | Filter by category | [Try it](https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood) |
-| `/filter.php?a={area}` | Filter by area/cuisine | [Try it](https://www.themealdb.com/api/json/v1/1/filter.php?a=Italian) |
-| `/random.php` | Get random meal | [Try it](https://www.themealdb.com/api/json/v1/1/random.php) |
-
-## ✅ Tasks to Complete
-
-### Level 1: Basic Functionality
-- [ ] Fetch and display meal categories in `#categories-grid`
-- [ ] Fetch and display recipes in `#recipes-grid`
-- [ ] Hide the loading overlay when data is loaded
-- [ ] Update the recipe count text
-
-### Level 2: Interactivity
-- [ ] Implement search functionality (use `#search-input`)
-- [ ] Filter recipes when clicking on a category
-- [ ] Show meal details when clicking on a recipe card
-
-### Level 3: Navigation
-- [ ] Implement sidebar navigation between pages
-- [ ] Create different views (Meals, Products, Food Log)
-
-### Level 4: Advanced Features
-- [ ] Add loading states while fetching data
-- [ ] Implement error handling for API calls
-- [ ] Save favorites to localStorage
-
-## 🎨 Key HTML Elements
-
-### Meals Page
-| Element ID | Purpose |
-|------------|---------|
-| `#app-loading-overlay` | Loading screen (hide when ready) |
-| `#categories-grid` | Container for category cards |
-| `#recipes-grid` | Container for recipe cards |
-| `#search-input` | Search input field |
-| `#recipes-count` | Text showing recipe count |
-
-### Product Scanner Page
-| Element ID | Purpose |
-|------------|---------|
-| `#products-section` | Product scanner page container (toggle display) |
-| `#product-search-input` | Product name search input |
-| `#barcode-input` | Barcode number input |
-| `#search-product-btn` | Product search button |
-| `#lookup-barcode-btn` | Barcode lookup button |
-| `#products-grid` | Container for product cards |
-| `#products-count` | Text showing products count |
-| `.nutri-score-filter` | Nutri-Score filter buttons |
-
-### Food Log Page
-| Element ID | Purpose |
-|------------|---------|
-| `#foodlog-section` | Food log page container (toggle display) |
-| `#foodlog-date` | Current date display |
-| `#foodlog-today-section` | Today's nutrition summary |
-| `#logged-items-list` | Container for logged food items |
-| `#weekly-chart` | Weekly chart container (Plotly) |
-| `#clear-foodlog` | Clear all logged items button |
-| `.quick-log-btn` | Quick action buttons |
-
-## 💡 Tips
-
-1. **Start Simple**: First just fetch and log data to console
-2. **Use Modules**: The project uses ES6 modules (`type="module"`)
-3. **Check Console**: Look for TODO messages and errors
-4. **Inspect Design**: The skeleton loaders show the expected card layout
-5. **Navigation**: Use `style.display = "none"` or `style.display = ""` to show/hide sections
-6. **Page State**: Track current page in your app state for navigation
-
-## 🔄 Navigation
-
-To switch between pages, hide/show the relevant sections:
-- **Meals Page**: Show `#search-filters-section`, `#meal-categories-section`, `#all-recipes-section`
-- **Product Scanner**: Show `#products-section`
-- **Food Log**: Show `#foodlog-section`
+**Adham Mahmoud**  
+- GitHub: [@adhammahmoud658-wq](https://github.com/adhammahmoud658-wq)
